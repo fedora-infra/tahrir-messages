@@ -136,7 +136,7 @@ class PersonRankAdvanceV1(TahrirMessage):
         "type": "object",
         "required": ["old_rank", "person"],
         "properties": {
-            "old_rank": {"type": "integer"},
+            "old_rank": {"type": ["integer", "null"]},
             "person": person_schema,
         },
     }
