@@ -87,7 +87,7 @@ class BadgeAwardV1(TahrirMessage):
         },
     }
 
-    topic = "person.login.first"
+    topic = "badge.award"
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -128,7 +128,7 @@ class PersonRankAdvanceV1(TahrirMessage):
         },
     }
 
-    topic = "person.login.first"
+    topic = "person.rank.advance"
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
