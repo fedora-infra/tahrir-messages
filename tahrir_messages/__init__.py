@@ -76,6 +76,9 @@ class BadgeAwardV1(TahrirMessage):
     def summary(self):
         return f"{self.agent_name} was awarded the badge `{self.body['badge']['name']}`"
 
+    def __str__(self):
+        return self.body["badge"]["description"]
+
     badge_schema: typing.ClassVar = {
         "type": "object",
         "required": ["badge_id", "description", "image_url", "name"],
@@ -91,7 +94,7 @@ class BadgeAwardV1(TahrirMessage):
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "description": "The message sent when a user logs into tahrir for the first time",
+        "description": "The message sent when a badge is awarded",
         "type": "object",
         "required": ["user", "badge"],
         "properties": {

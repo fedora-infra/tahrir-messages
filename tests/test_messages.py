@@ -44,7 +44,7 @@ def test_badge_award():
     expected_summary = "dudemcpants was awarded the badge `White Hat`"
     assert message.topic == "badges.badge.award"
     assert message.summary == expected_summary
-    assert str(message) == expected_summary
+    assert str(message) == DUMMY_BADGE["description"]
     assert message.agent_name == "dudemcpants"
     assert message.usernames == ["dudemcpants"]
     assert message.app_name == "tahrir"
