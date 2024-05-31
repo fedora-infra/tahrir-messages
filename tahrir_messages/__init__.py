@@ -52,7 +52,7 @@ class PersonLoginFirstV1(TahrirMessage):
     def summary(self):
         return f"{self.agent_name} logged into badges for the first time"
 
-    topic = "person.login.first"
+    topic = "badges.person.login.first"
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -87,7 +87,7 @@ class BadgeAwardV1(TahrirMessage):
         },
     }
 
-    topic = "badge.award"
+    topic = "badges.badge.award"
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -128,7 +128,7 @@ class PersonRankAdvanceV1(TahrirMessage):
         },
     }
 
-    topic = "person.rank.advance"
+    topic = "badges.person.rank.advance"
     body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/tahrir",
         "$schema": "http://json-schema.org/draft-04/schema#",
