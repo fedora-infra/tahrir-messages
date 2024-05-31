@@ -38,9 +38,9 @@ ruff = ">=0.0.253"
 reuse = ">=1.1.0"
 
 [tool.poetry.plugins."fedora.messages"]
-"person.login.first" = "tahrir_messages:PersonLoginFirstV1"
-"badge.award" = "tahrir_messages:BadgeAwardV1"
-"person.rank.advance" = "tahrir_messages:PersonRankAdvanceV1"
+"badges.person.login.first.v1" = "tahrir_messages:PersonLoginFirstV1"
+"badges.badge.award.v1" = "tahrir_messages:BadgeAwardV1"
+"badges.person.rank.advance.v1" = "tahrir_messages:PersonRankAdvanceV1"
 
 
 [tool.black]
