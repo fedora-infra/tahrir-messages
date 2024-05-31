@@ -20,7 +20,7 @@ def test_person_login_first():
     message.validate()
 
     expected_summary = "dudemcpants logged into badges for the first time"
-    assert message.topic == "person.login.first"
+    assert message.topic == "badges.person.login.first"
     assert message.summary == expected_summary
     assert str(message) == expected_summary
     assert message.agent_name == "dudemcpants"
@@ -42,7 +42,7 @@ def test_badge_award():
     message.validate()
 
     expected_summary = "dudemcpants was awarded the badge `White Hat`"
-    assert message.topic == "badge.award"
+    assert message.topic == "badges.badge.award"
     assert message.summary == expected_summary
     assert str(message) == expected_summary
     assert message.agent_name == "dudemcpants"
@@ -74,7 +74,7 @@ def test_person_rank_advance():
     message.validate()
 
     expected_summary = "aaronhale's Badges rank changed from 2 to 1"
-    assert message.topic == "person.rank.advance"
+    assert message.topic == "badges.person.rank.advance"
     assert message.summary == expected_summary
     assert str(message) == expected_summary
     assert message.agent_name == "aaronhale"
