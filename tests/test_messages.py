@@ -45,7 +45,8 @@ def test_badge_award():
     assert message.topic == "badges.badge.award"
     assert message.summary == expected_summary
     assert str(message) == DUMMY_BADGE["description"]
-    assert message.agent_name == "dudemcpants"
+    assert message.agent_name is None
+    assert message.recipient == "dudemcpants"
     assert message.usernames == ["dudemcpants"]
     assert message.app_name == "tahrir"
     assert message.url is None
@@ -77,7 +78,8 @@ def test_person_rank_advance():
     assert message.topic == "badges.person.rank.advance"
     assert message.summary == expected_summary
     assert str(message) == expected_summary
-    assert message.agent_name == "aaronhale"
+    assert message.agent_name is None
+    assert message.recipient == "aaronhale"
     assert message.usernames == ["aaronhale"]
     assert message.app_name == "tahrir"
     assert message.url is None

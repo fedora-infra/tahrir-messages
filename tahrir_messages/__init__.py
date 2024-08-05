@@ -65,16 +65,25 @@ class PersonLoginFirstV1(TahrirMessage):
     }
 
 
-class BadgeAwardV1(TahrirMessage):
-    """The message sent when a badge is awarded"""
+class BadgeMessage(TahrirMessage):
 
     @property
-    def agent_name(self):
+    def recipient(self):
         return self.body["user"]["username"]
 
     @property
+    def usernames(self):
+        return [self.recipient]
+
+    # No agent_name: the badges are awarded by the Badges system, not a user.
+
+
+class BadgeAwardV1(BadgeMessage):
+    """The message sent when a badge is awarded"""
+
+    @property
     def summary(self):
-        return f"{self.agent_name} was awarded the badge `{self.body['badge']['name']}`"
+        return f"{self.recipient} was awarded the badge `{self.body['badge']['name']}`"
 
     def __str__(self):
         return self.body["badge"]["description"]
@@ -104,17 +113,17 @@ class BadgeAwardV1(TahrirMessage):
     }
 
 
-class PersonRankAdvanceV1(TahrirMessage):
+class PersonRankAdvanceV1(BadgeMessage):
     """The message sent when a user's rank changes"""
 
     @property
-    def agent_name(self):
+    def recipient(self):
         return self.body["person"]["nickname"]
 
     @property
     def summary(self):
         return (
-            f"{self.agent_name}'s Badges rank changed from {self.body['old_rank']} "
+            f"{self.recipient}'s Badges rank changed from {self.body['old_rank']} "
             f"to {self.body['person']['rank']}"
         )
 
